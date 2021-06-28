@@ -1,0 +1,34 @@
+drop database if exists order_db;
+create database order_db;
+use order_db;
+create table order_table(
+order_id integer auto_increment,
+buyer_id integer  NOT NULL,
+amount float,
+date DATETIME,
+address varchar(50),
+status varchar(20),
+constraint order_table_order_id primary key (order_id)
+);
+
+insert into order_table (buyer_id,amount,date,address,status) values(1,16999.25,SYSDATE(),'Gandhi nagar,near square mart, Nagpur','Order Placed');
+insert into order_table (buyer_id,amount,date,address,status) values(3,14999.00,SYSDATE(),'meera road, opposit times square, Delhi','Dispatched');
+insert into order_table (buyer_id,amount,date,address,status) values(1,8499.30,SYSDATE(),'oasis villa, mahallar road, Mumbai','Delivered');
+insert into order_table (buyer_id,amount,date,address,status) values(5,16999.20,SYSDATE(),'new layout, infront valley, Karjat','Order Placed');
+insert into order_table (buyer_id,amount,date,address,status) values(4,14999.18 ,SYSDATE(),'ram nagar, pk valley, Bhopal','Packing');
+insert into order_table (buyer_id,amount,date,address,status) values(5,15999.20,SYSDATE(),'grant valla, next to kidsschool, Bareli','Dispatched');
+insert into order_table (buyer_id,amount,date,address,status) values(2,25999.20,SYSDATE(),'Lake View, 2nd Lane, Kochi','Dispatched');
+create table products_ordered(
+buyer_id integer  NOT NULL,
+product_id integer  NOT NULL,
+seller_id integer  NOT NULL,
+quantity integer  NOT NULL,
+constraint products_ordered_pk primary key (product_id,buyer_id)
+ );
+ 
+insert into products_ordered values(1,3,1,1);
+insert into products_ordered values(3,1,1,2);
+insert into products_ordered values(1,2,1,1);
+insert into products_ordered values(5,6,3,3);
+insert into products_ordered values(4,4,2,1);
+insert into products_ordered values(5,5,2,1);
