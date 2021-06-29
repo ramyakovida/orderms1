@@ -102,13 +102,13 @@ public class OrderAPI {
 		return new ResponseEntity<>(orderList, HttpStatus.OK);
 	}
 	
-	@PostMapping(value = "/manageOrder")
-	public ResponseEntity<String> manageOrder(@RequestBody ManageOrderDTO mOrder)
-			throws OrderMSException {
-		String status = orderService.manageOrder(mOrder);
-		String success = "The status of orderId: "+mOrder.getOrderId()+" is changed to: " + status ;
-		return new ResponseEntity<>(success, HttpStatus.OK);
-	}
+// 	@PostMapping(value = "/manageOrder")
+// 	public ResponseEntity<String> manageOrder(@RequestBody ManageOrderDTO mOrder)
+// 			throws OrderMSException {
+// 		String status = orderService.manageOrder(mOrder);
+// 		String success = "The status of orderId: "+mOrder.getOrderId()+" is changed to: " + status ;
+// 		return new ResponseEntity<>(success, HttpStatus.OK);
+// 	}
 	
 	
 	@PostMapping(value = "/orderMS/addToCart/{buyerId}/{prodId}/{quantity}")
